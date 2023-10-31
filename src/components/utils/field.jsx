@@ -54,7 +54,6 @@ const Field = forwardRef(
     // handle input box style when it has valid value
     const handleBlur = (e) => {
       const btn = e.relatedTarget
-      console.log(btn)
       const input = boxRef?.current.querySelector('.field-box__item')
       if (input.value && !error) {
         boxRef?.current.classList.add('field-box--success')
