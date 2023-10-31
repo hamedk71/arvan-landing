@@ -1,0 +1,101 @@
+.field {
+  @apply flex flex-col text-xs font-medium leading-4;
+
+  &-header {
+    @apply px-2 flex justify-between;
+  }
+
+  &-box {
+    @apply mt-2 p-2 flex items-start gap-2 text-xs font-normal rounded-lg border-green-600 border-[1px] transition duration-200 ease-linear cursor-text;
+    box-sizing: content-box;
+
+    &:focus-within {
+      @apply border-[1px] p-2;
+    }
+
+    &__item {
+      @apply py-[2px] px-2 pl-4 flex-1 resize-none;
+
+      &::placeholder {
+        @apply text-green-700;
+      }
+
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+        box-shadow: 0 0 0 30px transparent inset !important;
+        transition: background-color 5000s ease-in-out 0s;
+        -webkit-text-fill-color: white !important;
+      }
+    }
+
+    &__clear {
+      @apply px-[6px] text-gray-300 w-7 outline-none;
+
+      &:hover {
+        @apply text-gray-100;
+      }
+    }
+
+    /* box variant */
+    &--success {
+      @apply border-[2px] border-green-500 p-[7px];
+    }
+
+    &--error {
+      @apply border-[2px] border-error p-[7px] pr-2;
+    }
+  }
+
+  &-error {
+    @apply flex items-center gap-1 text-error text-xs font-bold mt-2;
+
+    &--disable {
+      @apply text-gray-500;
+    }
+  }
+
+  /* default variant */
+  & {
+    @apply text-white;
+
+    &--disable {
+      @apply text-gray-300;
+    }
+
+    &-box {
+      @apply bg-green-900 bg-opacity-50;
+
+      &--disable {
+        @apply border-opacity-5;
+      }
+
+      &:focus-within:not(&--error) {
+        @apply border-green-400;
+      }
+
+      &__item {
+        @apply bg-transparent outline-none border-none;
+
+        &--disable {
+          @apply text-gray-400;
+
+          &:-webkit-autofill,
+          &:-webkit-autofill:hover,
+          &:-webkit-autofill:focus,
+          &:-webkit-autofill:active {
+            -webkit-text-fill-color: #7a90aa !important;
+          }
+        }
+      }
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        /* @apply border-green-500 bg-green-500; */
+      }
+    }
+  }
+}
